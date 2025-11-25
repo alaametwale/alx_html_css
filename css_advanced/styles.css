@@ -1,213 +1,4 @@
 /* ------------------------------------
- * 1. VARIABLES - المتغيرات
- * (تأكد من وجود هذا القسم كما كان سابقاً)
- * ------------------------------------ */
-:root {
-    --primary-color: #FF6565; /* اللون الأحمر الرئيسي */
-    --text-color: #07162A; /* لون النص الرئيسي */
-    --light-text-color: #FFFFFF; /* لون النص الفاتح (للفوتر والخلفيات الداكنة) */
-    --dark-background: #07162A; /* لون خلفية الفوتر */
-    --section-background: #C271FF; /* لون خلفية قسم Free Membership */
-
-    --font-family-primary: 'Source Sans Pro', sans-serif;
-    --font-family-secondary: 'Spin-Cycle-OT', sans-serif; /* للعنوان الرئيسي */
-}
-
-/* ------------------------------------
- * 2. HEADER - الرأس وشريط التنقل
- * ------------------------------------ */
-
-header {
-    /* تحديث مسار الصورة إلى المسار النسبي المفترض */
-    background-image: url('./images/Object.png');
-    background-size: cover;
-    background-position: center top; /* تركيز على الجزء العلوي لظهور الوجه */
-    color: var(--light-text-color);
-    padding-bottom: 50px; /* تباعد سفلي لتحسين مظهر المحترفين */
-    /* استخدام Flexbox لتحديد الارتفاع وتوسيط المحتوى */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* تحديد ارتفاع مبدئي لـ Hero */
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 100px;
-    /* على الشاشات الأصغر من 1024px، يفضل استخدام عرض مخصص أو حاوية */
-    width: 100%;
-    max-width: 1000px; /* للتحكم في العرض على الشاشات الكبيرة */
-    margin: 0 auto;
-}
-
-nav img {
-    height: 30px; /* حجم الشعار */
-    width: auto;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 35px;
-    font-weight: 600;
-    font-size: 12px; /* حجم الخط حسب Figma */
-    text-transform: uppercase;
-}
-
-nav ul a:hover {
-    opacity: 0.5; /* تأثير التمرير الخفيف */
-}
-
-/* ------------------------------------
- * 3. HERO BANNER - القسم الأول (Get Schooled)
- * ------------------------------------ */
-
-/* استخدام main > section:first-of-type لتمثيل قسم الهيرو في الهيكل الخاص بك */
-main > section:first-of-type {
-    /* جعل قسم الهيرو يتوسط باقي المساحة المتبقية في الرأس */
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between; /* لدفع قسم المحترفين للأسفل */
-    padding-bottom: 50px;
-}
-
-/* جزء العنوان والأزرار */
-main > section:first-of-type > div:first-child {
-    padding-top: 100px;
-    margin-bottom: 50px; /* تباعد قبل قسم المحترفين */
-}
-
-main h1 {
-    font-family: var(--font-family-secondary);
-    font-size: 120px; /* حجم خط كبير للعنوان الرئيسي */
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    line-height: 1.2;
-}
-
-main > section:first-of-type > div:first-child span {
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-    margin: 0 10px;
-}
-
-main button {
-    margin-top: 40px;
-    font-size: 14px;
-    padding: 12px 28px; /* تباعد الزر الدقيق */
-}
-
-
-/* ------------------------------------
- * 4. PROS SUB-SECTION - جزء "Learn from the pros"
- * ------------------------------------ */
-main > section:first-of-type > div:last-child {
-    max-width: 850px;
-    width: 100%;
-    padding: 0 20px;
-}
-
-/* عنوان "Learn from the pros" */
-main > section:first-of-type > div:last-child h2 {
-    font-size: 32px;
-    font-weight: 300;
-    margin-bottom: 60px;
-    color: var(--light-text-color);
-}
-
-main > section:first-of-type > div:last-child h2 span {
-    font-weight: 900;
-}
-
-/* حاوية المحترفين */
-main > section:first-of-type > div:last-child > div {
-    display: flex;
-    justify-content: space-between; /* توزيع متساوٍ للمسافات */
-    gap: 30px;
-}
-
-/* بطاقة المحترف */
-main > section:first-of-type > div:last-child > div > div {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-main > section:first-of-type img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-main > section:first-of-type h3 {
-    font-weight: 900;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: var(--light-text-color);
-}
-
-main > section:first-of-type p {
-    font-style: italic;
-    font-size: 14px;
-    color: var(--light-text-color);
-    opacity: 0.5; /* لون فاتح قليلاً كما في Figma */
-}
-
-/* ------------------------------------
- * 5. MEDIA QUERIES - التجاوب (Mobile adjustments)
- * ------------------------------------ */
-
-@media (max-width: 1024px) {
-    nav {
-        padding: 30px 40px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Nav */
-    nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 20px 0;
-    }
-    nav ul {
-        gap: 20px;
-        margin-top: 15px;
-    }
-
-    /* Hero Banner */
-    main > section:first-of-type > div:first-child {
-        padding-top: 50px;
-    }
-    main h1 {
-        font-size: 60px; /* تصغير العنوان على الموبايل */
-    }
-
-    /* Pros */
-    main > section:first-of-type > div:last-child h2 {
-        margin-bottom: 40px;
-    }
-    
-    main > section:first-of-type > div:last-child > div {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    main > section:first-of-type > div:last-child > div > div {
-        width: 80%; /* توسيع البطاقة لملء الشاشة */
-        margin-bottom: 20px;
-    }
-}
-/* ------------------------------------
  * 8. TUTORIALS SECTION - قسم الدروس (Most popular tutorials)
  * ------------------------------------ */
 main > section:nth-child(3) {
@@ -222,6 +13,12 @@ main > section:nth-child(3) h2 {
     color: var(--text-color);
 }
 
+/* تحديد كلمة 'popular' باللون البنفسجي */
+main > section:nth-child(3) h2 strong { /* إضافة وسم strong في HTML لكلمة popular */
+    color: var(--section-background); /* #C271FF */
+    font-weight: 700;
+}
+
 /* حاوية البطاقات */
 main > section:nth-child(3) > div {
     display: flex;
@@ -233,97 +30,44 @@ main > section:nth-child(3) > div {
     padding: 0 20px;
 }
 
-/* بطاقة الدرس (نستخدم .tutorial-card بدلاً من div لتسهيل التحديد) */
+/* بطاقة الدرس */
 main > section:nth-child(3) > div > div {
-    width: 250px; /* عرض البطاقة حسب Figma */
+    width: 250px;
     text-align: left;
+    position: relative; /* مهم لوضع أيقونة التشغيل */
 }
 
-/* صورة الدرس (التي تحتوي على زر تشغيل) */
+/* ------------------ تراكب أيقونة التشغيل (Play Icon Overlay) ------------------ */
+main > section:nth-child(3) > div > div::before {
+    content: url('./images/play.png'); /* افترضنا أن لديك صورة play.png */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -120%); /* تعديل الـ Y لتوسيط الأيقونة على الصورة */
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0.9;
+}
+/* -------------------------------------------------------------------------- */
+
+
 main > section:nth-child(3) > div img:first-child {
     width: 100%;
     height: auto;
     margin-bottom: 15px;
 }
 
-main > section:nth-child(3) h3 {
-    font-weight: 900;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-main > section:nth-child(3) p:not(.duration) { /* الفقرة الوصفية */
-    font-size: 14px;
-    color: var(--text-color);
-    opacity: 0.7;
-    margin-bottom: 15px;
-    line-height: 1.4;
-}
-
-/* جزء المؤلف (صورة المؤلف واسمه) */
-main > section:nth-child(3) > div > div > div:nth-child(4) {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-main > section:nth-child(3) > div > div > div:nth-child(4) img {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-main > section:nth-child(3) h4 { /* اسم المؤلف */
-    color: var(--primary-color);
+/* جزء المؤلف (اسم المؤلف) */
+main > section:nth-child(3) h4 { 
+    color: var(--section-background); /* تغيير اللون إلى البنفسجي */
     font-weight: bold;
     font-size: 14px;
 }
 
 /* جزء التقييم (النجوم) */
-main > section:nth-child(3) > div > div > div:nth-child(5) {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
-}
-
-/* النجمة */
 main > section:nth-child(3) i.fa-star {
-    color: var(--primary-color);
-    font-size: 13px; /* حجم النجمة */
+    color: var(--section-background); /* تغيير اللون إلى البنفسجي */
+    font-size: 13px;
 }
 
-/* مدة الدرس */
-main > section:nth-child(3) > div > div > p:last-child {
-    font-weight: 600;
-    font-size: 12px;
-    color: var(--text-color);
-    opacity: 0.7;
-}
-
-/* ------------------------------------
- * 12. MEDIA QUERIES - استعلامات الوسائط (تحديث التجاوب)
- * ------------------------------------ */
-
-@media (max-width: 768px) {
-    /* ... الأنماط السابقة في Media Query ... */
-
-    /* Tutorials Section - التجاوب */
-    main > section:nth-child(3) h2 {
-        margin-bottom: 40px;
-    }
-    
-    main > section:nth-child(3) > div {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    main > section:nth-child(3) > div > div {
-        width: 85%; /* توسيع البطاقة لملء شاشة الموبايل */
-        margin-bottom: 30px;
-        max-width: 300px; /* تحديد عرض أقصى لتبدو جيدة */
-    }
-}
-/* ... الأنماط الأخرى تتبع هذا الجزء ... */
+/* ... باقي الأنماط تظل كما هي ... */
