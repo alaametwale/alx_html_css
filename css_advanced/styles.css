@@ -1,7 +1,252 @@
-/* CSS Advanced Project - Start styling here */
+/* ------------------------------------
+ * 1. FONTS - الخطوط
+ * يجب استيراد خطوط Source Sans Pro و Spin Cycle OT.
+ * ------------------------------------ */
+@font-face {
+    font-family: 'Spin-Cycle-OT';
+    src: url('./fonts/Spin-Cycle-OT.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* يمكنك استخدام استيراد Google Fonts لـ Source Sans Pro إذا لم يكن لديك ملفات OTF/TTF */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+
+/* ------------------------------------
+ * 2. VARIABLES - المتغيرات
+ * لضمان سهولة التعديل واتساق الألوان والخطوط.
+ * ------------------------------------ */
+:root {
+    --primary-color: #FF6565; /* اللون الأحمر الرئيسي */
+    --text-color: #07162A; /* لون النص الرئيسي */
+    --light-text-color: #FFFFFF; /* لون النص الفاتح (للفوتر والخلفيات الداكنة) */
+    --dark-background: #07162A; /* لون خلفية الفوتر */
+    --section-background: #C271FF; /* لون خلفية قسم Free Membership */
+
+    --font-family-primary: 'Source Sans Pro', sans-serif;
+    --font-family-secondary: 'Spin-Cycle-OT', sans-serif; /* للعنوان الرئيسي */
+}
+
+
+/* ------------------------------------
+ * 3. RESET & BASE STYLES - إعادة التعيين والأنماط الأساسية
+ * ------------------------------------ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+    font-family: var(--font-family-primary);
+    color: var(--text-color);
+    line-height: 1.5;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ------------------------------------
+ * 4. GENERAL UTILITIES - الأدوات العامة
+ * ------------------------------------ */
+
+.container {
+    /* يمكنك استخدام حاوية لتحديد عرض الصفحة الأقصى إذا لزم الأمر */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* أزرار REGISTER FOR FREE */
+button {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 22px; /* نصف القطر الدائري */
+    padding: 10px 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* ------------------------------------
+ * 5. HEADER - الرأس (Navigation & Hero)
+ * ------------------------------------ */
+
+/* خلفية الصورة الكبيرة */
+header {
+    background-image: url('./images/pic_1.jpg'); /* يجب استبدالها بمسار الصورة الفعلية لخلفية الهيرو */
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 300px; /* لضمان ارتفاع مناسب للخلفية */
+    color: var(--light-text-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px; /* تباعد داخلي */
+}
+
+nav img {
+    height: 30px; /* تعديل حجم الشعار حسب التصميم */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Hero Section (Get schooled) */
+header > section:first-of-type > div:first-child {
+    text-align: center;
+    padding-top: 150px;
+}
+
+header h1 {
+    font-family: var(--font-family-secondary); /* الخط الثانوي للعنوان */
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+header span {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 10px;
+}
+
+header button {
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* ------------------------------------
+ * 6. PROS SECTION - قسم المحترفين (Learn from the pros)
+ * ------------------------------------ */
+.pros-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.pros-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 80px;
+}
+
+.pros-section h2 span {
+    font-weight: 700;
+}
+
+.pros-section > div {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.pros-section > div > div {
+    width: 20%;
+}
+
+.pros-section img {
+    border-radius: 50%;
+    width: 150px; /* حجم صورة المحترف */
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.pros-section h3 {
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.pros-section p {
+    font-style: italic;
+    color: rgba(7, 22, 42, 0.5); /* لون رمادي فاتح للنص */
+}
+
+/* ------------------------------------
+ * 7. QUOTE SECTION - قسم الاقتباس
+ * ------------------------------------ */
+.quote-section {
+    background-color: #FF6565; /* لون الخلفية */
+    padding: 80px 0;
+    color: var(--light-text-color);
+}
+
+.quote-content {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 50px;
+}
+
+.quote-content img {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.quote-text blockquote {
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.quote-text h3 {
+    font-weight: bold;
+}
+
+.quote-text p {
+    font-style: italic;
+    font-size: 14px;
+}
+
+
+/* ------------------------------------
+ * 8. TUTORIALS SECTION - قسم الدروس (Most popular tutorials)
+ * ------------------------------------ */
+.tutorials-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.tutorials-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 60px;
+}
+
+.tutorials-section > div {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* للسماح بالتجاوب على الأجهزة الأصغر */
+}
+
+.tutorial-card {
+    width: 230px; /* عرض البطاقة */
+    text-align: left;
+    position: relative;
+}
+
+.tutorial-
