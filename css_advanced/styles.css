@@ -1,73 +1,77 @@
 /* ------------------------------------
- * 8. TUTORIALS SECTION - قسم الدروس (Most popular tutorials)
+ * 9. MEMBERSHIP SECTION - قسم العضوية المجانية
  * ------------------------------------ */
-main > section:nth-child(3) {
+main > section:nth-child(4) {
+    background-color: var(--dark-background); /* #07162A أو لون أزرق داكن/أسود مناسب */
+    color: var(--light-text-color);
     padding: 80px 0;
     text-align: center;
 }
 
-main > section:nth-child(3) h2 {
+main > section:nth-child(4) h2 {
     font-size: 32px;
     font-weight: 300;
     margin-bottom: 60px;
-    color: var(--text-color);
-}
-
-/* تحديد كلمة 'popular' باللون البنفسجي */
-main > section:nth-child(3) h2 strong { /* إضافة وسم strong في HTML لكلمة popular */
-    color: var(--section-background); /* #C271FF */
-    font-weight: 700;
+    color: var(--light-text-color);
 }
 
 /* حاوية البطاقات */
-main > section:nth-child(3) > div {
+main > section:nth-child(4) > div:first-of-type {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap; 
+    margin-bottom: 50px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 20px;
 }
 
-/* بطاقة الدرس */
-main > section:nth-child(3) > div > div {
-    width: 250px;
-    text-align: left;
-    position: relative; /* مهم لوضع أيقونة التشغيل */
+/* بطاقة العضوية */
+main > section:nth-child(4) > div:first-of-type > div {
+    width: 200px;
 }
 
-/* ------------------ تراكب أيقونة التشغيل (Play Icon Overlay) ------------------ */
-main > section:nth-child(3) > div > div::before {
-    content: url('./images/play.png'); /* افترضنا أن لديك صورة play.png */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -120%); /* تعديل الـ Y لتوسيط الأيقونة على الصورة */
-    z-index: 10;
-    cursor: pointer;
-    opacity: 0.9;
-}
-/* -------------------------------------------------------------------------- */
-
-
-main > section:nth-child(3) > div img:first-child {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+/* أيقونة الابتسامة */
+main > section:nth-child(4) img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    /* يمكن استخدام filter لتغيير لون الأيقونة إلى البنفسجي إذا كانت SVG */
+    /* إذا كانت الأيقونة بنفسجية بالفعل، فلا حاجة لـ filter */
 }
 
-/* جزء المؤلف (اسم المؤلف) */
-main > section:nth-child(3) h4 { 
-    color: var(--section-background); /* تغيير اللون إلى البنفسجي */
-    font-weight: bold;
+main > section:nth-child(4) h3 {
+    font-weight: 900;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+main > section:nth-child(4) p {
     font-size: 14px;
+    opacity: 0.8; /* جعل النص الفاتح أغمق قليلاً */
 }
 
-/* جزء التقييم (النجوم) */
-main > section:nth-child(3) i.fa-star {
-    color: var(--section-background); /* تغيير اللون إلى البنفسجي */
-    font-size: 13px;
+/* زر REGISTER FOR FREE */
+main > section:nth-child(4) button {
+    font-size: 14px;
+    /* يجب تعديل لون زر REGISTER FOR FREE في هذا القسم ليتناسب مع الخلفية البنفسجية في الصورة المرفقة */
+    background-color: var(--section-background); /* #C271FF */
+    padding: 12px 28px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ... باقي الأنماط تظل كما هي ... */
+/* ------------------------------------
+ * 12. MEDIA QUERIES - استعلامات الوسائط (تحديث التجاوب)
+ * ------------------------------------ */
+
+@media (max-width: 768px) {
+    /* ... الأنماط السابقة في Media Query ... */
+
+    /* Membership Section - التجاوب */
+    main > section:nth-child(4) > div:first-of-type {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
