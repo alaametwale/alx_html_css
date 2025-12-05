@@ -1,0 +1,77 @@
+/* ------------------------------------
+ * 9. MEMBERSHIP SECTION - قسم العضوية المجانية
+ * ------------------------------------ */
+main > section:nth-child(4) {
+    background-color: var(--dark-background); /* #07162A أو لون أزرق داكن/أسود مناسب */
+    color: var(--light-text-color);
+    padding: 80px 0;
+    text-align: center;
+}
+
+main > section:nth-child(4) h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    color: var(--light-text-color);
+}
+
+/* حاوية البطاقات */
+main > section:nth-child(4) > div:first-of-type {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+/* بطاقة العضوية */
+main > section:nth-child(4) > div:first-of-type > div {
+    width: 200px;
+}
+
+/* أيقونة الابتسامة */
+main > section:nth-child(4) img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    /* يمكن استخدام filter لتغيير لون الأيقونة إلى البنفسجي إذا كانت SVG */
+    /* إذا كانت الأيقونة بنفسجية بالفعل، فلا حاجة لـ filter */
+}
+
+main > section:nth-child(4) h3 {
+    font-weight: 900;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+main > section:nth-child(4) p {
+    font-size: 14px;
+    opacity: 0.8; /* جعل النص الفاتح أغمق قليلاً */
+}
+
+/* زر REGISTER FOR FREE */
+main > section:nth-child(4) button {
+    font-size: 14px;
+    /* يجب تعديل لون زر REGISTER FOR FREE في هذا القسم ليتناسب مع الخلفية البنفسجية في الصورة المرفقة */
+    background-color: var(--section-background); /* #C271FF */
+    padding: 12px 28px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ------------------------------------
+ * 12. MEDIA QUERIES - استعلامات الوسائط (تحديث التجاوب)
+ * ------------------------------------ */
+
+@media (max-width: 768px) {
+    /* ... الأنماط السابقة في Media Query ... */
+
+    /* Membership Section - التجاوب */
+    main > section:nth-child(4) > div:first-of-type {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
