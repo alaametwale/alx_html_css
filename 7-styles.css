@@ -1,0 +1,84 @@
+/* reset */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#FF6565;
+  --muted:#6B7280;
+  --bg:#ffffff;
+  --card:#f8fafc;
+  --maxw:1000px;
+}
+body{font-family:Inter, Arial, sans-serif;background:var(--bg);color:#111;padding:36px}
+.container{max-width:var(--maxw);margin:0 auto}
+
+/* Features */
+.features{
+  display:flex;
+  gap:20px;
+  justify-content:space-between;
+  margin-bottom:48px;
+}
+.feature{
+  background:linear-gradient(180deg,#ffffff,#fcfcfd);
+  border-radius:14px;
+  padding:28px;
+  flex:1;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(16,24,40,0.06);
+  transform-origin:center;
+  transition: transform .25s ease;
+  animation: float 6s ease-in-out infinite;
+}
+.feature .icon{
+  font-size:40px;
+  margin-bottom:12px;
+}
+.feature h3{margin-bottom:8px}
+.feature p{color:var(--muted);font-size:14px}
+
+/* hover animation (scale) */
+.feature:hover{
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(16,24,40,0.12);
+}
+
+/* floating keyframes - subtle continuous movement */
+@keyframes float{
+  0%{transform: translateY(0)}
+  50%{transform: translateY(-8px)}
+  100%{transform: translateY(0)}
+}
+
+/* Results with pop-in animation */
+.results-anim{ text-align:center; padding-top:28px }
+.stats-row{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  margin-top:18px;
+}
+.stat{
+  background:linear-gradient(180deg,#111827,#0f172a);
+  color:#fff;
+  padding:24px 28px;
+  border-radius:12px;
+  min-width:140px;
+  transform: translateY(24px);
+  opacity:0;
+  animation: popIn .6s forwards;
+}
+.stat:nth-child(1){animation-delay:.1s}
+.stat:nth-child(2){animation-delay:.3s}
+.stat:nth-child(3){animation-delay:.5s}
+.stat span{display:block;color:#94a3b8;font-size:13px;margin-top:6px}
+
+/* pop-in keyframes */
+@keyframes popIn{
+  to { transform:none; opacity:1 }
+}
+
+/* Responsive */
+@media (max-width: 780px){
+  .features{flex-direction:column}
+  .stats-row{flex-direction:column; gap:12px}
+}
+

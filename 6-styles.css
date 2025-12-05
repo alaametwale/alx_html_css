@@ -1,0 +1,87 @@
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --bg: #fafafa;
+  --card-bg: #111827;
+  --accent: #FF6565;
+  --muted: #9CA3AF;
+  --maxw: 1000px;
+  --gap: 24px;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: #111;
+  line-height:1.4;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:40px 16px;
+}
+
+.container { max-width: var(--maxw); margin:0 auto; }
+
+.header { text-align:center; margin-bottom:36px; }
+.header h1 { font-size:28px; margin-bottom:8px; }
+.header .lead { color:var(--muted); }
+
+/* Grid */
+.pentagon-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--gap);
+  align-items:stretch;
+}
+
+/* Card wrapper for spacing */
+.pentagon-card { display:flex; justify-content:center; align-items:center; }
+
+/* Pentagon shape using clip-path */
+.pentagon {
+  width:220px;
+  height:220px;
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  box-shadow: 0 8px 24px rgba(17,24,39,0.25);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+
+/* inner content centered and rotated back (if needed) */
+.pentagon-inner {
+  text-align:center;
+  transform: translateY(-6px);
+  color: white;
+  padding:12px;
+}
+
+.pentagon .value {
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.pentagon .label {
+  display:block;
+  font-size:14px;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Hover effect */
+.pentagon:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(17,24,39,0.36);
+}
+
+/* Responsive: collapse to 2 or 1 column */
+@media (max-width: 900px) {
+  .pentagon-grid { grid-template-columns: repeat(2, 1fr); justify-items:center; }
+}
+@media (max-width: 480px) {
+  .pentagon-grid { grid-template-columns: 1fr; }
+  .pentagon { width:260px; height:260px; } /* slightly larger for mobile */
+}
+

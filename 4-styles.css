@@ -1,0 +1,212 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+}
+
+/* GENERAL CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    background: url("images/banner.jpg") no-repeat center/cover;
+    height: 90vh;
+    color: #fff;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-links a:hover {
+    color: #FF6565;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 4px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: #FF5B5B;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* WHAT WE DO */
+.what {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.subtitle {
+    margin: 10px auto 30px;
+    max-width: 500px;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.item {
+    width: 23%;
+    text-align: center;
+}
+
+/* ICONS (from holberton icons) */
+.icon {
+    display: inline-block;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+/* RESULTS */
+.results {
+    background: url("images/pentagon-bg.png") no-repeat center/cover;
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.pentagon {
+    width: 22%;
+    background: rgba(0,0,0,0.4);
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+/* CONTACT FORM */
+.contact {
+    padding: 80px 0;
+    text-align: center;
+}
+
+form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 120px;
+}
+
+.social img {
+    width: 30px;
+    margin-left: 20px;
+}
+
+.copy {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .items, .stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .item, .pentagon {
+        width: 100%;
+    }
+
+    header {
+        height: 70vh;
+    }
+}
+
